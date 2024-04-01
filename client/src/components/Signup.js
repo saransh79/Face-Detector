@@ -121,7 +121,7 @@ const Signup = () => {
                 email: formData.email,
                 password: formData.password,
                 faceDimensions: Object.values(faceAIData)
-            }, config);
+            });
             navigate("/login");
         } catch (error) {
             console.log(error);

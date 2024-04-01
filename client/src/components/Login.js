@@ -120,7 +120,7 @@ const Login = () => {
                 email: formData.email,
                 password: formData.password,
                 faceAIData: Object.values(faceAIData)
-            }, config);
+            });
             // console.log(response.data);
             localStorage.setItem("user", JSON.stringify(response.data));
 

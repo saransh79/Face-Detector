@@ -5,6 +5,12 @@ import jwt from "jsonwebtoken";
 
 export const signupUser = async (req, res, next) => {
     try {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader("Access-Control-Allow-Credentials", "true");
+		res.setHeader("Access-Control-Max-Age", "1800");
+		res.setHeader("Access-Control-Allow-Headers", "content-type");
+		res.setHeader("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
+        
         const { name, email, password, faceDimensions } = req.body;
         const isEmailExist = await userModel.findOne({ email });
 
@@ -25,6 +31,12 @@ export const signupUser = async (req, res, next) => {
 
 export const loginUser = async (req, res, next) => {
     try {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader("Access-Control-Allow-Credentials", "true");
+		res.setHeader("Access-Control-Max-Age", "1800");
+		res.setHeader("Access-Control-Allow-Headers", "content-type");
+		res.setHeader("Access-Control-Allow-Methods","PUT, POST, GET, DELETE, PATCH, OPTIONS");
+
         const { faceAIData, email, password } = req.body;
         // console.log(faceAIData);
         if (faceAIData.length > 0) {
