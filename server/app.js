@@ -8,11 +8,11 @@ dotenv.config();
 
 const app= express();
 cors
-app.use(cors({
-    origin: process.env.CORS_ORIGIN ,
-    credentials: true
-}))
-// app.use(cors());
+// app.use(cors({
+//     origin: process.env.CORS_ORIGIN ,
+//     credentials: true
+// }))
+app.use(cors());
 
 // body parse
 app.use(express.json());
@@ -22,9 +22,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use("/api",userRouter);
 
 // other routes
-app.all("*", (req,res)=>{
-    res.send(`Route ${req.originalUrl} not found`);
-})
+// app.all("*", (req,res)=>{
+//     res.send(`Route ${req.originalUrl} not found`);
+// })
 
 export default app;
 
