@@ -112,6 +112,8 @@ const Signup = () => {
                 email: formData.email,
                 password: formData.password,
                 faceDimensions: Object.values(faceAIData)
+            },{
+                withCredentials: true
             });
             navigate("/login");
         } catch (error) {
