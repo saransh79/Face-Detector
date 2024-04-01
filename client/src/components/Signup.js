@@ -115,7 +115,10 @@ const Signup = () => {
             });
             navigate("/login");
         } catch (error) {
+            console.log(error);
+            if(error.response)
             toast.error(error.response.data)
+            else toast.error(error.message);
         }
     };
 
