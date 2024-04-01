@@ -108,19 +108,27 @@ const Login = () => {
             //     setIsLoading(false);
             //     return toast.error("Face not detected, try again or use email authentication")
             // }
+
+            const config = {
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+                }
+            };
+
             const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/api/login`, {
                 email: formData.email,
                 password: formData.password,
                 faceAIData: Object.values(faceAIData)
-            });
+            }, config);
             // console.log(response.data);
             localStorage.setItem("user", JSON.stringify(response.data));
 
             navigate("/success")
         } catch (error) {
             console.log(error);
-            if(error.response)
-            toast.error(error.response.data)
+            if (error.response)
+                toast.error(error.response.data)
             else toast.error(error.message);
         }
         setIsLoading(false);

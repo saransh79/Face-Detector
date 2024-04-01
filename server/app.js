@@ -7,11 +7,12 @@ import bodyParser from "body-parser";
 dotenv.config();
 
 const app= express();
-// cors
-// app.use(cors({
-//     origin: process.env.CORS_ORIGIN 
-// }))
-app.use(cors());
+cors
+app.use(cors({
+    origin: process.env.CORS_ORIGIN ,
+    credentials: true
+}))
+// app.use(cors());
 
 // body parse
 app.use(express.json());

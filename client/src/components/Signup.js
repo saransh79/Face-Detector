@@ -41,27 +41,27 @@ const Signup = () => {
 
     useEffect(() => {
         const startCamera = async () => {
-          const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-          const currentVideoRef = videoRef.current; // Store a reference to videoRef.current
-          if (currentVideoRef) {
-            currentVideoRef.srcObject = stream;
-          }
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            const currentVideoRef = videoRef.current; // Store a reference to videoRef.current
+            if (currentVideoRef) {
+                currentVideoRef.srcObject = stream;
+            }
         };
-    
+
         startCamera();
-    
+
         return () => {
-          const currentVideoRef = videoRef.current; // Use the stored reference
-          if (currentVideoRef && currentVideoRef.srcObject) {
-            const stream = currentVideoRef.srcObject;
-            const tracks = stream.getTracks();
-    
-            tracks.forEach(track => {
-              track.stop();
-            });
-          }
+            const currentVideoRef = videoRef.current; // Use the stored reference
+            if (currentVideoRef && currentVideoRef.srcObject) {
+                const stream = currentVideoRef.srcObject;
+                const tracks = stream.getTracks();
+
+                tracks.forEach(track => {
+                    track.stop();
+                });
+            }
         };
-      }, []);
+    }, []);
 
 
     const captureImage = async () => {
@@ -105,20 +105,28 @@ const Signup = () => {
 
         try {
             // console.log(faceAIData);
-            if(faceAIData.length === 0){
+            if (faceAIData.length === 0) {
                 return toast.error("Face data is required, Please capture face")
             }
+
+            const config = {
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+                }
+            };
+
             await axios.post(`${process.env.REACT_APP_BASE_URL}/api/signup`, {
                 name: formData.name,
                 email: formData.email,
                 password: formData.password,
                 faceDimensions: Object.values(faceAIData)
-            });
+            }, config);
             navigate("/login");
         } catch (error) {
             console.log(error);
-            if(error.response)
-            toast.error(error.response.data)
+            if (error.response)
+                toast.error(error.response.data)
             else toast.error(error.message);
         }
         setIsLoading(false);
@@ -131,7 +139,7 @@ const Signup = () => {
                 draggable
             />
 
-          {isloading && <div style={{
+            {isloading && <div style={{
                 position: "fixed",
                 top: 0,
                 left: 0,
@@ -156,7 +164,7 @@ const Signup = () => {
                 alignItems: "center",
                 justifyContent: "space-between",
                 minHeight: "100vh",
-                filter: isloading ? "blur(5px)": "none",
+                filter: isloading ? "blur(5px)" : "none",
             }}>
                 <div style={{
                     width: "50%",
@@ -241,9 +249,9 @@ const Signup = () => {
                         </form>
                     </div>
                     <Typography variant='h6' onClick={() => { navigate("/login") }}
-                    style={{
-                        cursor: "pointer",
-                    }}>Click here to login</Typography>
+                        style={{
+                            cursor: "pointer",
+                        }}>Click here to login</Typography>
 
                 </div>
 
