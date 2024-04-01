@@ -5,13 +5,14 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app= express();
+// cors
+// app.use(cors({
+//     origin: process.env.CORS_ORIGIN
+// }))
+app.use(cors());
 
 // body parse
 app.use(express.json({limit: "50mb"}));
-// cors
-app.use(cors({
-    origin: process.env.CORS_ORIGIN
-}))
 
 // routes
 app.use("/api",userRouter);
