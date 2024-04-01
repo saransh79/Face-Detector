@@ -1,5 +1,5 @@
 import express, { urlencoded } from "express";
-import cors from "cors";
+// import cors from "cors";
 import userRouter from "./routes/user.route.js";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
@@ -8,10 +8,9 @@ dotenv.config();
 
 const app= express();
 // cors
-console.log(process.env.CORS_ORIGIN);
-app.use(cors({
-    origin: process.env.CORS_ORIGIN 
-}))
+// app.use(cors({
+//     origin: process.env.CORS_ORIGIN 
+// }))
 // app.use(cors());
 
 // body parse
@@ -19,7 +18,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", process.env.CORS_ORIGIN);
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     next();

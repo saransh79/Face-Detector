@@ -25,7 +25,6 @@ export const signupUser = async (req, res, next) => {
 
 export const loginUser = async (req, res, next) => {
     try {
-
         const { faceAIData, email, password } = req.body;
         // console.log(faceAIData);
         if (faceAIData.length > 0) {

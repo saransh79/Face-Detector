@@ -106,6 +106,7 @@ const Signup = () => {
         try {
             // console.log(faceAIData);
             if (faceAIData.length === 0) {
+                setIsLoading(false);
                 return toast.error("Face data is required, Please capture face")
             }
 
