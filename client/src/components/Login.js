@@ -112,8 +112,6 @@ const Login = () => {
                 email: formData.email,
                 password: formData.password,
                 faceAIData: Object.values(faceAIData)
-            },{
-                withCredentials: true
             });
             // console.log(response.data);
             localStorage.setItem("user", JSON.stringify(response.data));

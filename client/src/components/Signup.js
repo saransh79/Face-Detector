@@ -101,9 +101,10 @@ const Signup = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setIsLoading(true);
 
         try {
-            console.log(faceAIData);
+            // console.log(faceAIData);
             if(faceAIData.length === 0){
                 return toast.error("Face data is required, Please capture face")
             }
@@ -112,8 +113,6 @@ const Signup = () => {
                 email: formData.email,
                 password: formData.password,
                 faceDimensions: Object.values(faceAIData)
-            },{
-                withCredentials: true
             });
             navigate("/login");
         } catch (error) {
@@ -122,6 +121,7 @@ const Signup = () => {
             toast.error(error.response.data)
             else toast.error(error.message);
         }
+        setIsLoading(false);
     };
 
     return (
