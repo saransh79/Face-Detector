@@ -1,5 +1,5 @@
 import express, { urlencoded } from "express";
-// import cors from "cors";
+import cors from "cors";
 import userRouter from "./routes/user.route.js";
 import dotenv from "dotenv";
 
