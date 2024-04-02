@@ -21,9 +21,9 @@ const Success = () => {
       gap: "4rem",
       textAlign: "center"
   }}>
-      <Typography variant='h2'>Welcome <span style={{
+      <div className='h2'>Welcome <span style={{
         color: "#0096fe",
-      }}>{user.name}</span></Typography>
+      }}>{user.name}</span></div>
       <Button variant='outlined' onClick={handleLogout}>Logout</Button>
     </div>
   )

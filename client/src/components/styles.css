@@ -1,0 +1,139 @@
+.h2 {
+  font-size: 60px;
+}
+.h6{
+  font-size: 20px;
+}
+.home-wrapper,
+.signup-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  /* max-width: 100vw; */
+}
+.home-left, .signup-left {
+  width: "50%";
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: center;
+}
+.home-right {
+  width: "50%";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signup-right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 3rem;
+}
+.signup-form{
+  width: 50%;
+}
+
+.login-text{
+  display: none;
+  text-align: center;
+  padding: 2rem 0 0;
+}
+.login-left, .login-right{
+  width: 50%;
+}
+@media screen and (max-width: 800px) {
+  .h2 {
+    font-size: 40px;
+  }
+  .signup-left video{
+    width: 100%;
+  }
+  .signup-wrapper {
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    padding:50px 0;
+  }
+  .login-wrapper{
+    /* width: 500px; */
+    flex-wrap: wrap;
+    gap: 2rem;
+    flex-direction: column-reverse;
+  }
+  .login-text-fullscreen{
+    display: none;
+  }
+  .login-text{
+    display: block;
+  }
+  .login-left{
+    width: 100%;
+    align-items: center;
+  }
+  .login-right{
+    width: 100%;
+    align-items: center;
+  }
+  .login-right video{
+    width: 100%;
+  }
+  .login-image-div{
+    text-align: center;
+    /* width: 500px; */
+    /* height: inherit; */
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .h2 {
+    font-size: 30px;
+  }
+  .h6{
+    font-size: 16px;
+  }
+  .home-right img {
+    /* display: none; */
+    width: 300px;
+    height: inherit;
+  }
+  .home-wrapper {
+    flex-wrap: wrap;
+  }
+  .signup-wrapper {
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  .home-left {
+    justify-content: center;
+  }
+  .signup-left{
+    min-width: 350px;
+  }
+
+  .signup-left video{
+    width: 100%;
+  }
+  .signup-right{
+    width: 100%;
+    gap: 2rem;
+    flex-direction: column;
+  }
+  .signup-form{
+    width: 100%;
+  }
+  /* .login-wrapper{
+    width: 350px;
+  } */
+  .login-image-div img{
+    width: 300px;
+    height: inherit;
+  }
+}

@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ClipLoader from "react-spinners/ClipLoader";
 import TextField from '@mui/material/TextField';
 import { Button, Typography } from '@mui/material';
+import "./styles.css";
 
 // Define constant object for common CSS styles
 const inputStyles = {
@@ -160,39 +161,24 @@ const Signup = () => {
                 />
             </div>}
 
-            <div style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                minHeight: "100vh",
+            <div className='signup-wrapper' style={{
                 filter: isloading ? "blur(5px)" : "none",
             }}>
-                <div style={{
-                    width: "50%",
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "3rem"
-                }}>
+                <div className='signup-left' >
+                  {window.innerWidth <= 500 &&  <Typography variant='h3'>Signup</Typography>}
                     <video ref={videoRef} autoPlay muted></video>
                     <canvas ref={canvasRef} style={{ display: 'none' }} width={200} height={200}></canvas>
                     <Button
                         variant='outlined'
                         style={{
-                            padding: "10px 0",
+                            padding: "10px 20px",
                             color: "#fff",
                             borderColor: "#fff"
                         }}
                         onClick={captureImage}>Click Picture</Button>
                 </div>
-                <div style={{
-                    width: "50%",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "2rem"
-                }}>
-                    <Typography variant='h3'>Signup</Typography>
+                <div className='signup-right' >
+                  {window.innerWidth >500 &&  <Typography variant='h3'>Signup</Typography>}
 
 
                     {capturedImage && (
@@ -205,10 +191,7 @@ const Signup = () => {
                         </div>
                     )}
 
-                    <div style={{
-                        color: "white",
-                        width: "50%",
-                    }}>
+                    <div className='signup-form' >
                         <form onSubmit={handleSubmit} style={{
                             display: "flex",
                             flexDirection: "column",
@@ -249,10 +232,11 @@ const Signup = () => {
                             </Button>
                         </form>
                     </div>
-                    <Typography variant='h6' onClick={() => { navigate("/login") }}
+                    <div className='h6' onClick={() => { navigate("/login") }}
                         style={{
                             cursor: "pointer",
-                        }}>Click here to login</Typography>
+                            color: "grey"
+                        }}>Click here to login</div>
 
                 </div>
 

@@ -8,6 +8,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import TextField from '@mui/material/TextField';
 import { Button, Typography } from '@mui/material';
 import { emailLogin, login } from '../images';
+import "./styles.css";
 
 // Define constant object for common CSS styles
 const inputStyles = {
@@ -160,22 +161,22 @@ const Login = () => {
                 />
             </div>}
 
-            <div style={{
+            <div className='login-wrapper' style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
                 minHeight: "100vh",
                 filter: isloading ? "blur(5px)" : "none",
             }}>
-                <div style={{
-                    width: "50%",
+                <div className='login-left' style={{
+                    // width: "50%",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "2rem"
                 }}>
-                    <Typography variant='h3'>Login</Typography>
+                    <Typography className='login-text-fullscreen' variant='h3'>Login</Typography>
                     {showCamera ? (capturedImage ? (
                         <div>
                             <img id='image' src={capturedImage} alt="Captured" width={300} height={300} style={{
@@ -197,7 +198,7 @@ const Login = () => {
                             display: "flex",
                             flexDirection: "column",
                             gap: "20px",
-                            width: "50%",
+                            width: "80%",
                         }}>
                             <TextField
                                 required
@@ -228,7 +229,7 @@ const Login = () => {
                             padding: "10px 0",
                             color: "#fff",
                             borderColor: "#fff",
-                            width: "50%"
+                            width: "80%"
                         }}>Login</Button>
 
                     {!showCamera ? <Button variant='outlined' onClick={() => setShowCamera(true)}
@@ -236,7 +237,7 @@ const Login = () => {
                             padding: "10px 0",
                             color: "#fff",
                             borderColor: "#fff",
-                            width: "50%"
+                            width: "80%"
                         }}>Login with face</Button> :
                         <Button variant='outlined' onClick={() => {
                             setShowCamera(false);
@@ -246,35 +247,42 @@ const Login = () => {
                                 padding: "10px 0",
                                 color: "#fff",
                                 borderColor: "#fff",
-                                width: "50%"
+                                width: "80%"
                             }}>Login with email</Button>}
-                    <Typography variant='h6' onClick={() => { navigate("/signup") }}
+                    <div className='h6' onClick={() => { navigate("/signup") }}
                         style={{
                             cursor: "pointer",
                             // fontSize: "16px",
                             color: "grey"
-                        }}>Click here to signup</Typography>
+                        }}>Click here to signup</div>
                 </div>
                 {showCamera ?
                     (<div style={{
-                        width: "50%",
+                        // width: "50%",
                         display: "flex",
                         flexDirection: "column",
+                        alignItems: "center",
                         gap: "3rem"
-                    }}>
+                    }}
+                    className='login-right'>
+                        <Typography className='login-text' variant='h3'>Login</Typography>
                         <video ref={videoRef} autoPlay muted></video>
                         <canvas ref={canvasRef} style={{ display: 'none' }} width={300} height={400}></canvas>
                         <Button variant='outlined' onClick={captureImage}
                             style={{
-                                padding: "10px 0",
+                                padding: "10px 20px",
                                 color: "#fff",
                                 borderColor: "#fff"
                             }}>Click Picture</Button>
                     </div>) :
-                    (<div style={{
+                    (<div className='login-image-div' style={{
                         width: "50%",
-                        textAlign: "right"
-                    }}>
+                        display: "flex",
+                        alignItems: 'center',
+                        justifyContent: "center",
+                        flexDirection: "column",
+                        gap: "2rem"
+                    }}><Typography className='login-text' variant='h3'>Login</Typography>
                         <img src={emailLogin} alt='email-login' />
                     </div>)
                 }

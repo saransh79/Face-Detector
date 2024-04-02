@@ -1,10 +1,24 @@
 .App {
+  padding: 0 80px;
+}
+.footer{
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  background-color: black;
+  margin-top: 3rem;
 }
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+@media screen and (max-width: 800px) {
+  .App {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .App {
+    padding: 0 10px;
   }
 }
