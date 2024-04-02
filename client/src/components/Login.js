@@ -241,7 +241,8 @@ const Login = () => {
                         }}>Login with face</Button> :
                         <Button variant='outlined' onClick={() => {
                             setShowCamera(false);
-                            setCapturedImage(null)
+                            setCapturedImage(null);
+                            setFaceAIData([]);
                         }}
                             style={{
                                 padding: "10px 0",

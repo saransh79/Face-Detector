@@ -20,9 +20,10 @@ const FaceCam = () => {
         </BrowserRouter>
       </div>
       <div className='footer'>
-        <div>Developed by <span style={{
+        <div>Made with ❤️ by <a style={{
                     color: "#0096fe",
-                }}>@Saransh Gangwar</span></div>
+                    textDecoration: "none",
+                }} href='https://portfolio-one-steel-15.vercel.app/'>@Saransh Gangwar</a></div>
       </div>
     </div>
 

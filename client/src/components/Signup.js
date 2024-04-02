@@ -73,6 +73,12 @@ const Signup = () => {
         const imageDataURL = canvasRef.current.toDataURL('image/png');
         setCapturedImage(imageDataURL);
 
+        // const models=async()=>{
+        //     await faceapi.nets.ssdMobilenetv1.loadFromUri('./models'),
+        //     await faceapi.nets.faceLandmark68Net.loadFromUri('./models'),
+        //     await faceapi.nets.faceRecognitionNet.loadFromUri('./models'),
+        //     await faceapi.nets.ageGenderNet.loadFromUri('./models'),
+        // };
         await Promise.all([
             faceapi.nets.ssdMobilenetv1.loadFromUri('./models'),
             faceapi.nets.faceLandmark68Net.loadFromUri('./models'),
